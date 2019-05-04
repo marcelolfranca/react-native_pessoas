@@ -1,17 +1,20 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
-import {caixaAlta} from '../util'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { caixaAlta } from '../util'
 
 const ItemListaPessoa = props => {
-    const {pessoa} = props;
+    const { pessoa } = props;
     const { title, first, last } = pessoa.name;
     return (
-        <View style={styles.linhas}>
-        <Image style={styles.avatar} source={{uri: pessoa.picture.medium}} />
-            <Text style={styles.linhaTexto}>
-                {`${caixaAlta(title)} ${caixaAlta(first)} ${caixaAlta(last)}`}
-            </Text>
-        </View>
+        <TouchableOpacity onPress={() => console.log('clicou em ', first)}>
+            <View style={styles.linhas}>
+                <Image style={styles.avatar} source={{ uri: pessoa.picture.medium }} />
+                <Text style={styles.linhaTexto}>
+                    {`${caixaAlta(title)} ${caixaAlta(first)} ${caixaAlta(last)}`}
+                </Text>
+            </View>
+        </TouchableOpacity>
+
     );
 }
 

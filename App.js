@@ -1,32 +1,28 @@
-import React from 'react';
-import axios from 'axios';
-import { View } from 'react-native';
-import Header from './src/compenents/Header';
-import ListaPessoas from './src/compenents/ListaPessoas'
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import PaginaPessoas from './src/pages/PaginaPessoas';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pessoas: []
+const AppNavigator = createStackNavigator({
+  "Main": {
+    screen: PaginaPessoas
+  }
+},
+  {
+    defaultNavigationOptions: {
+      title: 'Pessoas',
+      headerStyle: {
+        backgroundColor: '#6ca2f7',
+        borderBottomWidth: 1,
+        borderBottomColor: '#c5c5c5'
+      },
+      headerTitleStyle: {
+        color: 'white',
+        fontSize: 30,
+        flexGrow: 1,
+        textAlign: 'center'
+      }
     }
-  }
-  //Abaixo o método é chamado apenas quando o componente for montado, não todas as vezes que for renderizado
-  componentDidMount() {
-    axios.get('https://randomuser.me/api/?nat=br&results=5').
-      then(response => {
-        const { results } = response.data;
-        this.setState({pessoas: results})
-      });
-  }
+  });
 
-  
-  render() {
-    return (
-      <View style>
-        <Header title="Pessoas" />
-        <ListaPessoas pessoas={this.state.pessoas}/>
-      </View>
-    );
-  }
-}
+const AppContainer = createAppContainer(AppNavigator);
+
+export default AppContainer;
