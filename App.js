@@ -1,9 +1,13 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import PaginaPessoas from './src/pages/PaginaPessoas';
+import PaginaDetalhePessoa from './src/pages/PaginaDetalhePessoa';
 
 const AppNavigator = createStackNavigator({
   "Main": {
     screen: PaginaPessoas
+  },
+  "DetalhePessoa": {
+    screen: PaginaDetalhePessoa
   }
 },
   {

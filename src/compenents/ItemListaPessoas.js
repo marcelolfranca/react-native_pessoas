@@ -3,10 +3,14 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { caixaAlta } from '../util'
 
 const ItemListaPessoa = props => {
-    const { pessoa } = props;
+    const { pessoa, onPressItem } = props;
     const { title, first, last } = pessoa.name;
     return (
-        <TouchableOpacity onPress={() => console.log('clicou em ', first)}>
+        <TouchableOpacity onPress={
+            // SEMPRE OBSERVAR DE NUNCA PASSAR A FUNÇÃO DIRETAMENTE
+            // SEMPRE COLOCAR A FUNÇÃO A SER EXECUTADA COMO O CALLBACK, COMO SEGUE ABAIXO
+            () => { onPressItem(); }
+        }>
             <View style={styles.linhas}>
                 <Image style={styles.avatar} source={{ uri: pessoa.picture.medium }} />
                 <Text style={styles.linhaTexto}>
@@ -14,7 +18,6 @@ const ItemListaPessoa = props => {
                 </Text>
             </View>
         </TouchableOpacity>
-
     );
 }
 
