@@ -10,13 +10,8 @@ const AppNavigator = createStackNavigator({
   "DetalhePessoa": {
     screen: PaginaDetalhePessoa,
     navigationOptions: (dados) => {
-      // ATENÇÃO
-      // POR MOTIVOS DO CURSO ESTAR DESATUALIZADO, ABAIXO UMA GAMBIARRA PARA CONSEGUIR ATRIBUIR O VALOR DA VARIÁVEL
-      const dadosParaString = JSON.stringify(dados);
-      const dadosJson = JSON.parse(dadosParaString);
-      const dadosPessoa = dadosJson.navigation.state.params.pessoa
-      // console.log('dados stringify=>>>>>>>>>>>>', dadosPessoa);
-      const nomePessoa = caixaAlta(dadosPessoa.name.first);
+      // console.log(dados.navigation.state.params.pessoa.name.first)
+      const nomePessoa = caixaAlta(dados.navigation.state.params.pessoa.name.first);
       return ({
         title: nomePessoa,
         headerTitleStyle: {
