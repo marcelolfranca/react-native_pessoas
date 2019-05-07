@@ -27,9 +27,8 @@ class PaginaPessoas extends React.Component {
             <View style>
                 <ListaPessoas
                     pessoas={this.state.pessoas}
-                    onPressItem={() => {
-                        // console.log('chegou aqui')
-                        this.props.navigation.navigate('DetalhePessoa');
+                    onPressItem={ parametros => {
+                        this.props.navigation.navigate('DetalhePessoa', parametros);
                     }
                 }
                 />

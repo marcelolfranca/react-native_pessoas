@@ -9,7 +9,7 @@ const ItemListaPessoa = props => {
         <TouchableOpacity onPress={
             // SEMPRE OBSERVAR DE NUNCA PASSAR A FUNÇÃO DIRETAMENTE
             // SEMPRE COLOCAR A FUNÇÃO A SER EXECUTADA COMO O CALLBACK, COMO SEGUE ABAIXO
-            () => { onPressItem(); }
+            () => { onPressItem({ pessoa }); }
         }>
             <View style={styles.linhas}>
                 <Image style={styles.avatar} source={{ uri: pessoa.picture.medium }} />
