@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import Linha from '../compenents/Linha'
 
 export default class PaginaDetalhePessoa extends React.Component {
     render() {
@@ -9,8 +10,11 @@ export default class PaginaDetalhePessoa extends React.Component {
                 <Image source={{ uri: pessoa.picture.large }} style={styles.avatar} />
                 <View style={styles.detailContainer}>
                     <View style={styles.linha}>
-                        <Text style={styles.cellCampo}>Email:</Text>
-                        <Text style={styles.cellConteudo}>{pessoa.email}</Text>
+                        <Linha label='Email:' content={pessoa.email} />
+                        <Linha label='Cidade:' content={pessoa.location.city} />
+                        <Linha label='Tel. fixo:' content={pessoa.phone} />
+                        <Linha label='Celular:' content={pessoa.cell} />
+                        <Linha label='Nacionalidade:' content={pessoa.nat} />
                     </View>
                 </View>
             </View>
@@ -31,21 +35,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#e2f9ff',
         marginTop: 20,
         elevation: 1
-    },
-    linha: {
-        flexDirection: 'row',
-        paddingTop: 3,
-        paddingBottom: 3,
-        borderWidth: 1,
-        borderColor: '#C5C5C5'
-    },
-    cellCampo: {
-        fontSize: 15,
-        paddingLeft: 5,
-        fontWeight: 'bold'
-    },
-    cellConteudo: {
-        fontSize: 15,
-        paddingLeft: 5
     }
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
 import ItemListaPessoas from './ItemListaPessoas';
 
 const ListaPessoas = props => {
@@ -7,7 +7,7 @@ const ListaPessoas = props => {
     const nomesPessoas = pessoas.map(pessoa => {
         return <ItemListaPessoas key={pessoa.name.first} pessoa={pessoa} onPressItem={onPressItem} />
     });
-    return <View style={styles.container}>{nomesPessoas}</View>
+    return <ScrollView style={styles.container}>{nomesPessoas}</ScrollView>
 }
 
 const styles = StyleSheet.create({

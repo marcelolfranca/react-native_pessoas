@@ -13,7 +13,7 @@ class PaginaPessoas extends React.Component {
     }
     //Abaixo o método é chamado apenas quando o componente for montado, não todas as vezes que for renderizado
     componentDidMount() {
-        axios.get('https://randomuser.me/api/?nat=br&results=5').
+        axios.get('https://randomuser.me/api/?nat=br&results=10').
             then(response => {
                 const { results } = response.data;
                 this.setState({ pessoas: results })
